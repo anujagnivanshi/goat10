@@ -1,4 +1,4 @@
-#Jenkins file for CI Pipeline
+
 String credentialsID = 'awsCredentials'
 
 try {
@@ -10,7 +10,7 @@ try {
     }
 
 
-    #Run Terraform Init
+    
     stage ('init') {
             node {
             withCredentials(
@@ -28,7 +28,7 @@ try {
         }
     }
 
-    #Run Terraform Plan
+    
     stage ('init') {
         node {
             withCredentials(
