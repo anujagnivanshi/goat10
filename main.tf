@@ -1,7 +1,7 @@
 # To initialize module
 provider "aws" {
 
-  region     = "${var.aws_region}"
+  region     = "us-east-2"
   access_key = "${var.acc_key}"
   secret_key = "${var.sec_key}"
 }
