@@ -18,7 +18,7 @@ try {
                 $class: 'AmazonWebServicesCredentialsBinding',
                 credentialsID: credentialsID,
                 accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                secretkryVariable: 'AWS_SECRET_KEY_ID'
+                secretkeyVariable: 'AWS_SECRET_KEY_ID'
             ]]
             ){
                 ansiColor('xterm') {
@@ -36,7 +36,7 @@ try {
                 $class : 'AmazonWebServicesCredentialsBinding',
                 credentialsID: credentialsID,
                 accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                secretkryVariable: 'AWS_SECRET_KEY_ID'
+                secretkeyVariable: 'AWS_SECRET_KEY_ID'
             ]]
             ){
                 ansiColor('xterm') {
@@ -74,7 +74,7 @@ try {
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsID: credentialsID,
                     accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                    secretkryVariable: 'AWS_SECRET_KEY_ID'
+                    secretkeyVariable: 'AWS_SECRET_KEY_ID'
                 ]]
                 ){
                     ansiColor('xterm'){
