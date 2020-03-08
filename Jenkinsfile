@@ -9,19 +9,15 @@ try {
         }
     }
 
-
-    
     stage ('init') {
             node {
-            withCredentials(
-            [[
+            withCredentials([[
                 $class: 'AmazonWebServicesCredentialsBinding',
                 credentialsID: credentialsID,
                 accesskeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretkeyVariable: 'AWS_SECRET_KEY_ID'
-            ]]
-            ){
-                ansiColor('xterm') {
+            ]]) {
+                    ansiColor('xterm') {
                     sh 'terraform init'
                 }
             }
@@ -29,17 +25,15 @@ try {
     }
 
     
-    stage ('init') {
+    stage ('plan') {
         node {
-            withCredentials(
-            [[
-                $class : 'AmazonWebServicesCredentialsBinding',
+            withCredentials([[
+                $class: 'AmazonWebServicesCredentialsBinding',
                 credentialsID: credentialsID,
                 accesskeyVariable: 'AWS_ACCESS_KEY_ID',
                 secretkeyVariable: 'AWS_SECRET_KEY_ID'
-            ]]
-            ){
-                ansiColor('xterm') {
+            ]]) {
+                    ansiColor('xterm') {
                     sh 'terraform plan'
                 }
             }
@@ -52,15 +46,14 @@ try {
         
         stage('apply') {
             node {
-                withCredentials(
-                [[
+                withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsID: credentialsID,
                     accesskeyVariable: 'AWS_ACCESS_KEY_ID'
                     secretkeyVariable: 'AWS_SECRET_KEY_ID'
-                ]]
-                ){
-                    ansiColor('xterm') {
+                
+                ]]) {
+                        ansiColor('xterm') {
                         sh 'terraform apply -auto-approve'
                     }
                 }
@@ -69,15 +62,14 @@ try {
 
         stage ('show') {
             node {
-                withCredentials(
-                [[
+                withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsID: credentialsID,
                     accesskeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretkeyVariable: 'AWS_SECRET_KEY_ID'
-                ]]
-                ){
-                    ansiColor('xterm'){
+                
+                ]]) {
+                        ansiColor('xterm'){
                         sh 'terraform show'
                     }
                 }
@@ -86,6 +78,7 @@ try {
     }
     currentBuild.result = 'SUCCESS'
 }
+
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowerror) {
     currentBuild.result = 'ABORTED'
 }
