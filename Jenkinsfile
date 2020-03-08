@@ -57,7 +57,7 @@ try {
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsID: credentialsID,
                     accesskeyVariable: 'AWS_ACCESS_KEY_ID'
-                    secretkryVariable: 'AWS_SECRET_KEY_ID'
+                    secretkeyVariable: 'AWS_SECRET_KEY_ID'
                 ]]
                 ){
                     ansiColor('xterm') {
@@ -87,10 +87,10 @@ try {
     currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowerror) {
-    cuurentBuild.result = 'ABORTED'
+    currentBuild.result = 'ABORTED'
 }
 catch (err) {
-    current.Build.result = ''FAILURE
+    currentBuild.result = 'FAILURE'
     throw err
 }
 finally {
