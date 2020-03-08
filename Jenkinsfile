@@ -49,7 +49,7 @@ try {
 
     if (env.BRANCH_NAME == 'master') {
 
-        #Run Terrafrom Apply
+        
         stage('apply') {
             node {
                 withCredentials(
