@@ -1,5 +1,5 @@
 
-String credentialsID = 'awsCredentials'
+String credentialsId = 'awsCredentials'
 
 try {
     stage('checkout'){
@@ -13,9 +13,9 @@ try {
             node {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsID: credentialsID,
-                    accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                    secretkeyVariable: 'AWS_SECRET_KEY_ID'
+                    credentialsId: credentialsId,
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_KEY_ID'
                 ]]) {
                         ansiColor('xterm') {
                         sh 'terraform init'
@@ -29,9 +29,9 @@ try {
         node {
             withCredentials([[
                 $class: 'AmazonWebServicesCredentialsBinding',
-                credentialsID: credentialsID,
-                accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                secretkeyVariable: 'AWS_SECRET_KEY_ID'
+                credentialsId: credentialsId,
+                accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                secretKeyVariable: 'AWS_SECRET_KEY_ID'
             ]]) {
                     ansiColor('xterm') {
                     sh 'terraform plan'
@@ -45,12 +45,13 @@ try {
 
         
         stage('apply') {
+
             node {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsID: credentialsID,
-                    accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                    secretkeyVariable: 'AWS_SECRET_KEY_ID'
+                    credentialsId: credentialsId,
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_KEY_ID'
                 ]]) {
                         ansiColor('xterm') {
                         sh 'terraform apply -auto-approve'
@@ -63,9 +64,9 @@ try {
             node {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsID: credentialsID,
-                    accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                    secretkeyVariable: 'AWS_SECRET_KEY_ID'
+                    credentialsId: credentialsId,
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_KEY_ID'
                 
                 ]]) {
                         ansiColor('xterm'){
