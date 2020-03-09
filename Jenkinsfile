@@ -11,16 +11,16 @@ try {
 
     stage ('init') {
             node {
-            withCredentials([[
-                $class: 'AmazonWebServicesCredentialsBinding',
-                credentialsID: credentialsID,
-                accesskeyVariable: 'AWS_ACCESS_KEY_ID',
-                secretkeyVariable: 'AWS_SECRET_KEY_ID'
-            ]]) {
-                    ansiColor('xterm') {
-                    sh 'terraform init'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsID: credentialsID,
+                    accesskeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretkeyVariable: 'AWS_SECRET_KEY_ID'
+                ]]) {
+                        ansiColor('xterm') {
+                        sh 'terraform init'
+                    }
                 }
-            }
         }
     }
 
@@ -49,9 +49,8 @@ try {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsID: credentialsID,
-                    accesskeyVariable: 'AWS_ACCESS_KEY_ID'
+                    accesskeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretkeyVariable: 'AWS_SECRET_KEY_ID'
-                
                 ]]) {
                         ansiColor('xterm') {
                         sh 'terraform apply -auto-approve'
