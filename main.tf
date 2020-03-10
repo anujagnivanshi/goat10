@@ -2,8 +2,7 @@
 provider "aws" {
 
   region     = "us-east-2"
-  access_key = "${var.acc_key}"
-  secret_key = "${var.sec_key}"
+  
 }
 module "ext_vm" {
   source       = "./ec2"
