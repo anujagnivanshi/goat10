@@ -12,7 +12,7 @@ module "ext_vm" {
   keypair_name = "awstestkey"
   sec_group    = "${module.network.sg-link-pub}"
   ebs_size     = "12"
-  ebs_type     = "Standard"
+  ebs_type     = "standard"
   machine_type = "t2.micro"
 }
 module "int_vm" {
@@ -23,7 +23,7 @@ module "int_vm" {
   keypair_name = "awstestkey"
   sec_group    = "${module.network.sg-link-pri}"
   ebs_size     = "12"
-  ebs_type     = "Standard"
+  ebs_type     = "standard"
   machine_type = "t2.micro"
 }
 
